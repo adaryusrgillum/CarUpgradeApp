@@ -96,6 +96,33 @@ CarUpgradeApp/
 - **Premium Features**: Saved wishlists, price alerts, advanced filters.
 - **Sponsored Brands**: Featured brand sections.
 
+## 🚀 Deployment
+
+### GitHub Pages
+
+This app is configured for automatic deployment to GitHub Pages. The site is available at:
+**https://adaryusrgillum.github.io/CarUpgradeApp**
+
+The deployment happens automatically when you push to the `main` branch via GitHub Actions.
+
+#### Manual Deployment
+
+You can also deploy manually from your local machine:
+
+```bash
+cd frontend
+npm install
+npm run deploy
+```
+
+This will build the app and deploy it to the `gh-pages` branch.
+
+#### Deployment Configuration
+
+- The app is configured with the homepage URL in `frontend/package.json`
+- GitHub Actions workflow handles automatic builds and deployments
+- The workflow builds the React app and deploys the `frontend/build` directory to GitHub Pages
+
 ## 🔮 Future Enhancements
 
 - [ ] Mobile app (React Native)
