@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './PartsSearch.css';
 
@@ -48,26 +48,26 @@ const PartsSearch = () => {
 
     return (
           <div className="parts-search-container">
-                <h1>Find Cheap Car Parts</h1>h1>
+                <h1>Find Cheap Car Parts</h1>
                 
                 <form onSubmit={searchParts} className="search-form">
                         <div className="form-group">
-                                  <label htmlFor="make">Vehicle Make:</label>label>
+                                  <label htmlFor="make">Vehicle Make:</label>
                                   <select 
                                                 id="make"
                                                 value={make} 
                                     onChange={(e) => setMake(e.target.value)}
                                               >
-                                              <option value="">Select Make</option>option>
-                                              <option value="Kia">Kia</option>option>
-                                              <option value="Hyundai">Hyundai</option>option>
-                                              <option value="Toyota">Toyota</option>option>
-                                              <option value="Honda">Honda</option>option>
-                                  </select>select>
-                        </div>div>
+                                              <option value="">Select Make</option>
+                                              <option value="Kia">Kia</option>
+                                              <option value="Hyundai">Hyundai</option>
+                                              <option value="Toyota">Toyota</option>
+                                              <option value="Honda">Honda</option>
+                                  </select>
+                        </div>
                 
                         <div className="form-group">
-                                  <label htmlFor="model">Vehicle Model:</label>label>
+                                  <label htmlFor="model">Vehicle Model:</label>
                                   <input 
                                                 id="model"
                                                 type="text" 
@@ -75,42 +75,42 @@ const PartsSearch = () => {
                                                 value={model}
                                                 onChange={(e) => setModel(e.target.value)}
                                               />
-                        </div>div>
+                        </div>
                 
                         <button type="submit" className="search-btn" disabled={loading}>
                           {loading ? 'Searching...' : 'Search Parts'}
-                        </button>button>
-                </form>form>
+                        </button>
+                </form>
           
-            {error && <div className="error-message">{error}</div>div>}
+            {error && <div className="error-message">{error}</div>}
           
                 <div className="results">
                   {parts.length > 0 && (
                       <>
-                                  <h2>Found {parts.length} Parts</h2>h2>
+                                  <h2>Found {parts.length} Parts</h2>
                                   <div className="parts-grid">
                                     {parts.map((part) => (
                                         <div key={part.id} className="part-card">
-                                                          <h3>{part.name}</h3>h3>
-                                                          <p className="part-price">${part.price.toFixed(2)}</p>p>
-                                                          <p className="part-vendor">{part.vendor}</p>p>
+                                                          <h3>{part.name}</h3>
+                                                          <p className="part-price">${part.price.toFixed(2)}</p>
+                                                          <p className="part-vendor">{part.vendor}</p>
                                                           <button 
                                                                                 onClick={() => getPriceComparison(part.id)}
                                                                                 className="compare-btn"
                                                                               >
                                                                               Compare Prices
-                                                          </button>button>
-                                        </div>div>
+                                                          </button>
+                                        </div>
                                       ))}
-                                  </div>div>
-                      </>>
+                                  </div>
+                      </>
                     )}
                   {!loading && parts.length === 0 && make && (
-                      <p className="no-results">No parts found. Try a different search.</p>p>
+                      <p className="no-results">No parts found. Try a different search.</p>
                         )}
-                </div>div>
-          </div>div>
+                </div>
+          </div>
         );
 };
 
-export default PartsSearch;</></div>
+export default PartsSearch;
